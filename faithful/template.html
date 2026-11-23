@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squid BBS intro (1994)</title>
+<meta name="description" content="A faithful JavaScript remake of the 1994 Squid BBS intro by cld & The Doctor.">
+<!--
+  Faithful JavaScript remake of SQUID1.COM, the 1994 "Squid BBS" intro
+  (Curitiba, Brazil). Code & muzak by cld, AdLib player by The Doctor.
+  The original was released as freeware with its source; the authors ask to be credited.
+  Built from faithful/ and src/ by tools/build.py. Click or press a key for sound.
+-->
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  body { display: grid; place-items: center; }
+  #screen {
+    width: min(100vw, calc(100vh * 4 / 3));
+    aspect-ratio: 4 / 3;
+    image-rendering: pixelated;
+    display: block;
+  }
+  #hint {
+    position: fixed; right: 16px; bottom: 12px;
+    font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace;
+    color: #2aa; opacity: .8; transition: opacity .6s; pointer-events: none;
+  }
+  #hint.gone { opacity: 0; }
+</style>
+</head>
+<body>
+<canvas id="screen" aria-label="Squid BBS intro: scrolling text over copper bars"></canvas>
+<div id="hint">click or press a key for sound</div>
+<script>window.SQUID_ASSETS = { com: "%%COM%%", font: "%%FONT%%" };</script>
+<script>%%OPL2%%</script>
+<script>%%CORE%%</script>
+<script>%%VGA%%</script>
+<script>%%MAIN%%</script>
+</body>
+</html>
